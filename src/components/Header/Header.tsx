@@ -1,5 +1,3 @@
-import classNames from 'classnames';
-import { useEffect } from 'react';
 import styles from './Header.module.scss';
 
 export default function Header() {
