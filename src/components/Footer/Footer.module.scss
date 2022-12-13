@@ -1,0 +1,17 @@
+@import '/src/assets/styles/variables';
+
+.footer__container {
+  display: flex;
+  justify-content: center;
+  background: $green;
+  padding: 3rem;
+  margin-top: 1rem;
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+  }
+}
