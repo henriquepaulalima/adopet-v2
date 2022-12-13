@@ -1,0 +1,43 @@
+@import '/src/assets/styles/breakpoints';
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header__controls {
+    display: flex;
+    align-items: center;
+    margin: 2.5rem;
+    
+    .brand__icon {
+      height: 30px;
+      display: block;
+    }
+
+    @media (max-width: $mobile) {
+      .brand__icon {
+        display: none;
+      }
+    }
+
+    .home__icon {
+      height: 23px;
+      width: 20px;
+    }
+
+    .message__icon {
+      height: 19px;
+      width: 24px;
+    }
+
+    .user__icon {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  img {
+    padding: 0 1rem;
+  }
+}
