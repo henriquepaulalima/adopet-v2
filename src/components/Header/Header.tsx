@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 export default function Header() {
@@ -5,21 +6,27 @@ export default function Header() {
     <header>
       <nav className={styles.header__container}>
         <div className={styles.header__controls}>
-          <img
-            src="/assets/img/Logo-02.png"
-            className={styles.brand__icon}
-            alt="Ícone do Adopet"
-          />
-          <img
-            src="/assets/img/Casa.png"
-            className={styles.home__icon}
-            alt="Ícone de casa"
-          />
-          <img
-            src="/assets/img/Mensagens.png"
-            className={styles.message__icon}
-            alt="Ícone de mensagens"
-          />
+          <Link to="/">
+            <img
+              src="/assets/img/Logo-02.png"
+              className={styles.brand__icon}
+              alt="Ícone do Adopet"
+            />
+          </Link>
+          <Link to="/">
+            <img
+              src="/assets/img/Casa.png"
+              className={styles.home__icon}
+              alt="Ícone de casa"
+            />
+          </Link>
+          <Link to="/">
+            <img
+              src="/assets/img/Mensagens.png"
+              className={styles.message__icon}
+              alt="Ícone de mensagens"
+            />
+          </Link>
         </div>
         <div>
           <img
@@ -29,6 +36,6 @@ export default function Header() {
           />
         </div>
       </nav>
-    </header>
+    </header >
   );
 }
