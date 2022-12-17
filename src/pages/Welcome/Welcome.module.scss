@@ -45,6 +45,12 @@ body {
   display: flex;
   flex-direction: column;
 
+  a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
   button {
     background: $red;
     font-size: 1rem;
