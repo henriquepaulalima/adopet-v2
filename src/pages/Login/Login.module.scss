@@ -1,17 +1,5 @@
 @import '/src/assets/styles/variables';
 
-body {
-  background: url('./assets/Forma_1.svg') left top no-repeat, url('./assets/Forma_2_flip.svg') left center no-repeat, #fff;
-  background-size: 295px, 64px;
-}
-
-@media screen and (min-width: 768px) {
-  body {
-    background: url('./assets/Forma_1.svg') left top no-repeat, url('./assets/Forma_2.svg') right center no-repeat, url('./assets/Patas.png') right top no-repeat, #fff;
-    background-size: 395px, 104px, 147px;
-  }
-}
-
 .main_text__container {
   display: flex;
   flex-direction: column;
