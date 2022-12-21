@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Login.module.scss';
 
 export default function Login() {
@@ -23,7 +24,9 @@ export default function Login() {
           <small></small>
           <p className={styles.forgot_password}>Esqueci minha senha</p>
         </div>
-        <button type="submit">Entrar</button>
+        <Link to="/home">
+          <button type="submit">Entrar</button>
+        </Link>
       </form>
     </div>
   );
