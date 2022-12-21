@@ -6,6 +6,7 @@ import Login from "../Login/Login";
 import Footer from "../../components/Footer/Footer";
 import classNames from "classnames";
 import { useEffect, useState } from 'react';
+import Signin from '../Signin/Signin';
 
 export default function App() {
   let location = useLocation();
@@ -29,6 +30,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
+          <Route path='/signin' element={<Signin />} />
         </Routes>
       </main>
       <Footer />

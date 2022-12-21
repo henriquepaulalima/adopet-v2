@@ -11,7 +11,7 @@ export default function Welcome() {
         <Link to="/login">
           <button>Já tenho conta</button>
         </Link>
-        <Link to="/singin">
+        <Link to="/signin">
           <button>Quero me cadastrar</button>
         </Link>
       </div>
