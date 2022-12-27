@@ -1,0 +1,74 @@
+@import 'src/assets/styles/variables';
+@import 'src/assets/styles/breakpoints';
+
+.pet_card__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  flex: 0 0 auto;
+  width: 100%;
+
+  @media (min-width: $mobile) and (max-width: $desktop_xsm) {
+    width: 50%;
+  }
+
+  @media (min-width: $desktop_xsm) {
+    width: 33.33333333%;
+  }
+
+  .pet_img__container {
+    padding: 1rem;
+
+    img {
+      height: 148px;
+      cursor: pointer;
+    }
+  }
+
+  .pet_info__container {
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $blue;
+    }
+
+    p {
+      font-size: .8rem;
+      font-weight: 400;
+      color: #737380;
+      margin: 0;
+    }
+
+    address {
+      font-size: .75rem;
+      font-weight: 400;
+      color: #737380;
+      margin: 0;
+      padding: 1rem 0;
+    }
+
+    .pet_info_contact__container {
+      display: flex;
+      align-items: flex-end;
+      margin: 0;
+
+      img {
+        height: 18px;
+      }
+
+      a {
+        text-decoration: none;
+
+        p {
+          font-size: .6rem;
+          font-weight: 400;
+          color: #737380;
+          cursor: pointer;
+          margin: 0;
+          padding: .25rem;
+        }
+      }
+    }
+  }
+}
