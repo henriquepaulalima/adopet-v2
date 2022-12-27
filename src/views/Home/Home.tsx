@@ -4,7 +4,7 @@ import petsList from './pets.json';
 import Pet from './Pet/Pet';
 
 export default function Home() {
-  const [pets, setPets] = useState(petsList);
+  const [pets] = useState(petsList);
 
   return (
     <div>
