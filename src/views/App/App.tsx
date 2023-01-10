@@ -8,6 +8,7 @@ import classNames from "classnames";
 import { useEffect, useState } from 'react';
 import Signin from '../Signin/Signin';
 import Home from '../Home/Home';
+import Contact from '../Contact/Contact';
 
 export default function App() {
   let location = useLocation();
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/contact-owner/:id' element={<Contact />} />
         </Routes>
       </main>
       <Footer />
