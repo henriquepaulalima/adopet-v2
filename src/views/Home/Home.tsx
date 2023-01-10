@@ -1,6 +1,6 @@
 import styles from './Home.module.scss';
 import { useState } from 'react';
-import petsList from './pets.json';
+import petsList from '../../data/pets.json';
 import Pet from './Pet/Pet';
 
 export default function Home() {
