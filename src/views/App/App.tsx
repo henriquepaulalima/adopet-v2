@@ -27,7 +27,7 @@ export default function App() {
       [styles["main_background__default"]]: backgroundDefault
     })}>
       <Header />
-      <main>
+      <main className={styles.main_container}>
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />

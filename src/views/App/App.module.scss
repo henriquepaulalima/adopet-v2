@@ -15,8 +15,12 @@
     background: url('../../assets/img/Forma_1.svg') left top no-repeat, url('../../assets/img/Forma_2_flip.svg') left center no-repeat, #fff;
 
     @media screen and (min-width: 768px) {
-        background: url('../../assets/img/Forma_1.svg') left top no-repeat, url('../../assets/img/Forma_2.svg') right center no-repeat, url('../../assets/img/Patas.png') right top no-repeat, #fff;
-        background-size: 395px, 104px, 147px;   
+      background: url('../../assets/img/Forma_1.svg') left top no-repeat, url('../../assets/img/Forma_2.svg') right center no-repeat, url('../../assets/img/Patas.png') right top no-repeat, #fff;
+      background-size: 395px, 104px, 147px;
     }
   }
+}
+
+.main_container {
+  min-height: 85vh;
 }
