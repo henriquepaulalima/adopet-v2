@@ -1,7 +1,26 @@
 import { Link } from 'react-router-dom';
 import styles from './Signin.module.scss';
+import { useState } from 'react';
+import classNames from 'classnames';
 
 export default function Signin() {
+  const [email, setEmail] = useState('');
+  const [isEmailValid, setIsEmailValid] = useState<boolean | null>(null);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  }
+
+  const verifyEmail = () => {
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!emailRegex.test(email)) {
+      setIsEmailValid(false);
+    } else {
+      setIsEmailValid(true);
+    }
+  }
+
   return (
     <div className={styles.main__container}>
       <div className={styles.signin__container}>
@@ -13,7 +32,13 @@ export default function Signin() {
         <div className={styles.form_field__container}>
           <label>
             Email
-            <input type="text" placeholder="Escolha seu melhor email" />
+            <input
+              type="email"
+              placeholder="Escolha seu melhor email"
+              onChange={handleInputChange}
+              onBlur={verifyEmail}
+              value={email}
+            />
           </label>
           <small></small>
         </div>
