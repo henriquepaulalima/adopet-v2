@@ -1,0 +1,54 @@
+@import 'src/assets/styles/variables';
+@import 'src/assets/styles/breakpoints';
+
+.main_contact__container {
+  padding: 3rem;
+  display: flex;
+  flex-direction: row;
+
+  .pet__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+
+    .pet__img {
+      height: 20rem;
+    }
+
+    .pet_info__container {
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        text-align: center;
+        margin: 3rem 0 0;
+      }
+
+      .pet_info__subinfo {
+        margin-top: 2rem;
+
+        p {
+          color: #fff;
+          background: $blue;
+          text-align: center;
+          padding: .5rem 1rem;
+          border-radius: 25px;
+        }
+      }
+
+      address {
+        color: #fff;
+        background: $green;
+        text-align: center;
+        margin: 2rem 0;
+        padding: .5rem 3rem;
+        border-radius: 25px;
+      }
+    }
+  }
+
+  .contact_form__container {
+    width: 50vw;
+  }
+}

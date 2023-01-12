@@ -7,26 +7,28 @@ export default function Contact() {
   const pet = pets.find(petItem => petItem.id === Number(id));
 
   if (!pet) {
-    return(
+    return (
       <></>
     );
   }
 
   return (
-    <div>
-      <div>
+    <div className={styles.main_contact__container}>
+      <div className={styles.pet__container}>
         <div>
-          <img src={pet.img} alt={`Foto ${pet.name}`} />
+          <img className={styles.pet__img} src={pet.img} alt={`Foto ${pet.name}`} />
         </div>
         <div className={styles.pet_info__container}>
           <h3>{pet.name}</h3>
-          <p>{pet.age}</p>
-          <p>{pet.size}</p>
-          <p>{pet.behavior}</p>
+          <div className={styles.pet_info__subinfo}>
+            <p>{pet.age}</p>
+            <p>{pet.size}</p>
+            <p>{pet.behavior}</p>
+          </div>
           <address>{pet.location}</address>
         </div>
       </div>
-      <div>
+      <div className={styles.contact_form__container}>
         <div>
           <p>Envie uma mensagem para a pessoa ou instituição que está cuidado do animal:</p>
         </div>
