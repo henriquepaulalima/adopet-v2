@@ -5,6 +5,12 @@
   padding: 3rem;
   display: flex;
   flex-direction: row;
+  align-items: center;
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    
+  }
 
   .pet__container {
     display: flex;
