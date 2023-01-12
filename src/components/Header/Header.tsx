@@ -13,18 +13,11 @@ export default function Header() {
               alt="Ícone do Adopet"
             />
           </Link>
-          <Link to="/">
+          <Link to="/home">
             <img
               src="/assets/img/Casa.png"
               className={styles.home__icon}
               alt="Ícone de casa"
-            />
-          </Link>
-          <Link to="/">
-            <img
-              src="/assets/img/Mensagens.png"
-              className={styles.message__icon}
-              alt="Ícone de mensagens"
             />
           </Link>
         </div>
