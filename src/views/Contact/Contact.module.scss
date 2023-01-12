@@ -34,11 +34,13 @@
           text-align: center;
           padding: .5rem 1rem;
           border-radius: 25px;
+          font-weight: bold;
         }
       }
 
       address {
         color: #fff;
+        font-weight: bold;
         background: $green;
         text-align: center;
         margin: 2rem 0;
@@ -50,5 +52,108 @@
 
   .contact_form__container {
     width: 50vw;
+
+    .contact_form__title_container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        color: $blue;
+      }
+    }
+
+    .contact_form__input_list_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+
+      .contact_form__input_container {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+
+        label {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          font-size: 1rem;
+          font-weight: 600;
+          color: $blue;
+
+          input,
+          textarea {
+            width: 20rem;
+            text-align: center;
+            border: none;
+            padding: .5rem 1.5rem;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+
+            &::placeholder {
+              font-size: 0.75rem;
+              font-weight: 400;
+              color: $grey-light;
+            }
+
+            &:focus {
+              outline-color: $green;
+            }
+
+            .error {
+              text-align: start !important;
+              padding-top: 0.5rem !important;
+              padding-bottom: 0.5rem !important;
+              padding-right: 1.5rem !important;
+              padding-left: 1.5rem !important;
+              border: 0 !important;
+              box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+
+              &:focus {
+                outline-color: $red;
+              }
+            }
+
+            .success {
+              text-align: start !important;
+              padding-top: 0.5rem !important;
+              padding-bottom: 0.5rem !important;
+              padding-right: 1.5rem !important;
+              padding-left: 1.5rem !important;
+              border: 0 !important;
+              box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+            }
+          }
+        }
+
+        small {
+          font-size: .75rem;
+          font-weight: 400;
+          text-align: center;
+          color: $red;
+          padding: .25rem 0;
+        }
+      }
+
+      button {
+        background: $red;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        margin: 1rem 0 10rem;
+        padding: .5rem 3rem;
+        border: none;
+        border-radius: 0.375rem;
+      }
+    }
+
+    p {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--blue);
+      padding: 3rem;
+    }
   }
 }

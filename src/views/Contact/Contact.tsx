@@ -29,32 +29,32 @@ export default function Contact() {
         </div>
       </div>
       <div className={styles.contact_form__container}>
-        <div>
-          <p>Envie uma mensagem para a pessoa ou instituição que está cuidado do animal:</p>
+        <div className={styles.contact_form__title_container}>
+          <p>Envie uma mensagem para a pessoa ou instituição que está cuidado do animal:</p>  
         </div>
-        <form>
-          <div>
-            <label >
+        <form className={styles.contact_form__input_list_container}>
+          <div className={styles.contact_form__input_container}>
+            <label>
               Nome
               <input placeholder="Insira seu nome completo"></input>
             </label>
             <small></small>
           </div>
-          <div>
+          <div className={styles.contact_form__input_container}>
             <label>
               Telefone
               <input placeholder="Insira seu telefone e/ou whatsapp"></input>
             </label>
             <small></small>
           </div>
-          <div>
+          <div className={styles.contact_form__input_container}>
             <label>
               Nome do animal
               <input placeholder="Por qual animal você se interessou?"></input>
             </label>
             <small></small>
           </div>
-          <div>
+          <div className={styles.contact_form__input_container}>
             <label>
               Mensagem
               <textarea placeholder="Escreva sua mensagem"></textarea>
