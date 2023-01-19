@@ -12,10 +12,11 @@ export default function Signin() {
   const [isNameValid, setIsNameValid] = useState<boolean | null>(null);
   const [password, setPassword] = useState('');
   const [isPasswordValid, setIsPasswordValid] = useState<boolean | null>(null);
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [isPasswordConfirmatonValid, setIsPasswordConfirmationValid] = useState<boolean | null>(null);
+  const [passwordInputType, setPasswordInputType] = useState('password');
+  const [showPassword, setShowPassword] = useState(false);
   const [isSubmitValid, setIsSubmitValid] = useState<boolean | null>(null);
-
+  const [isSubmitLoading, setIsSubmitLoading] = useState(false);
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
 
   const handleEmailInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -27,10 +28,6 @@ export default function Signin() {
 
   const handlePasswordInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-  }
-
-  const handlePasswordConfirmationInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPasswordConfirmation(event.target.value);
   }
 
   const verifyEmail = () => {
@@ -63,32 +60,31 @@ export default function Signin() {
     }
   }
 
-  const verifyPasswordConfirmation = () => {
-    const passwordConfirmationRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-
-    if (!passwordConfirmationRegex.test(passwordConfirmation)) {
-      setIsPasswordConfirmationValid(false);
-    } else {
-      setIsPasswordConfirmationValid(true);
-    }
-  }
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitLoading(true);
 
     verifyEmail();
     verifyName();
     verifyPassword();
-    verifyPasswordConfirmation();
 
-    if (isEmailValid !== true && isNameValid !== true && isPasswordValid !== true && isPasswordConfirmatonValid !== true) {
-      if (password !== passwordConfirmation) {
-        setIsSubmitValid(false);
-      } else {
-        setIsSubmitValid(true);
-        navigate('/home');
-        // REVIEW VALIDATION
-      }
+    if (isEmailValid && isNameValid && isPasswordValid) {
+      setIsSubmitLoading(false);
+      setIsSubmitSuccessful(true);
+      setIsSubmitValid(true);
+      // navigate('/home');
+    } else {
+      setIsSubmitValid(false);
+    }
+  }
+
+  const switchShowPassword = () => {
+    if (showPassword) {
+      setShowPassword(false);
+      setPasswordInputType('password');
+    } else {
+      setShowPassword(true);
+      setPasswordInputType('text');
     }
   }
 
@@ -138,36 +134,37 @@ export default function Signin() {
         <div className={styles.form_field__container}>
           <label>
             Senha
-            <input
-              type="password"
-              placeholder="Crie uma senha"
-              onChange={handlePasswordInputChange}
-              onBlur={verifyPassword}
-              value={password}
-              className={classNames({
-                [styles.error]: isPasswordValid === false
-              })}
-              required
-            />
+            <div className={styles.input_with_icon__container}>
+              <input
+                type={passwordInputType}
+                placeholder="Crie uma senha"
+                title='A senha deve conter 1 letra, 1 número, 1 caractere especial e pelo menos 8 caracteres'
+                onChange={handlePasswordInputChange}
+                onBlur={verifyPassword}
+                value={password}
+                className={classNames({
+                  [styles.error]: isPasswordValid === false
+                })}
+                required
+              />
+              <i onClick={switchShowPassword} className='material-icons'>
+                {showPassword ? 'visibility_off' : 'visibility'}
+              </i>
+            </div>
           </label>
         </div>
-        <div className={styles.form_field__container}>
-          <label>
-            Confirmar senha
-            <input
-              type="password"
-              placeholder="Repita a senha criada acima"
-              onChange={handlePasswordConfirmationInputChange}
-              onBlur={verifyPasswordConfirmation}
-              value={passwordConfirmation}
-              className={classNames({
-                [styles.error]: isPasswordConfirmatonValid === false
-              })}
-              required
-            />
-          </label>
-        </div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">
+          {(() => {
+            if (isSubmitLoading) {
+              return <i className='material-icons'>loop</i>;
+            } else if (isSubmitSuccessful) {
+              return <i className='material-icons'>check</i>;
+            } else {
+              return 'Cadastrar';
+            }
+          })()}
+        </button>
+        {/* FIX ICON BEHAVIOUR */}
         {isSubmitValid === false ? <small>Algo está errado, verifique se todos os campos estão corretos</small> : ''}
       </form>
     </div>
