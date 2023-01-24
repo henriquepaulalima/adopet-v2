@@ -60,6 +60,16 @@ export default function Signin() {
     }
   }
 
+  const switchShowPassword = () => {
+    if (showPassword) {
+      setShowPassword(false);
+      setPasswordInputType('password');
+    } else {
+      setShowPassword(true);
+      setPasswordInputType('text');
+    }
+  }
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitLoading(true);
@@ -69,22 +79,18 @@ export default function Signin() {
     verifyPassword();
 
     if (isEmailValid && isNameValid && isPasswordValid) {
-      setIsSubmitLoading(false);
-      setIsSubmitSuccessful(true);
       setIsSubmitValid(true);
-      // navigate('/home');
+      setIsSubmitLoading(true);
+      setTimeout(() => {
+        setIsSubmitLoading(false);
+        setIsSubmitSuccessful(true);
+        setTimeout(() => {
+          navigate('/home');
+        }, 1000)
+      }, 3000);
     } else {
       setIsSubmitValid(false);
-    }
-  }
-
-  const switchShowPassword = () => {
-    if (showPassword) {
-      setShowPassword(false);
-      setPasswordInputType('password');
-    } else {
-      setShowPassword(true);
-      setPasswordInputType('text');
+      setIsSubmitLoading(false);
     }
   }
 
@@ -156,7 +162,7 @@ export default function Signin() {
         <button type="submit">
           {(() => {
             if (isSubmitLoading) {
-              return <i className='material-icons'>loop</i>;
+              return <div><i className='material-icons loading-icon'>loop</i></div>;
             } else if (isSubmitSuccessful) {
               return <i className='material-icons'>check</i>;
             } else {
@@ -164,7 +170,6 @@ export default function Signin() {
             }
           })()}
         </button>
-        {/* FIX ICON BEHAVIOUR */}
         {isSubmitValid === false ? <small>Algo está errado, verifique se todos os campos estão corretos</small> : ''}
       </form>
     </div>
